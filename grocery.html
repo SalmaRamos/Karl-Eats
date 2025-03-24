@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery Price Comparisons</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Karl Eats - Grocery Prices</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="reviews.html">Reviews & Blogs</a></li>
+                <li><a href="grocery.html">Grocery Prices</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Compare Grocery Prices</h2>
+        <table>
+            <tr>
+                <th>Item</th>
+                <th>Trader Joe’s</th>
+                <th>Safeway</th>
+                <th>Whole Foods</th>
+            </tr>
+            <tr>
+                <td>Bananas (per lb)</td>
+                <td>$0.19</td>
+                <td>$0.59</td>
+                <td>$0.69</td>
+            </tr>
+            <tr>
+                <td>Organic Milk (1 gallon)</td>
+                <td>$4.99</td>
+                <td>$5.49</td>
+                <td>$6.99</td>
+            </tr>
+            <tr>
+                <td>Eggs (dozen)</td>
+                <td>$2.99</td>
+                <td>$3.49</td>
+                <td>$4.99</td>
+            </tr>
+        </table>
+
+        <h2>Add Price Comparison</h2>
+        <form class="review-form">
+            <input type="text" id="item-name" placeholder="Item Name">
+            <input type="text" id="store1" placeholder="Price at Trader Joe’s">
+            <input type="text" id="store2" placeholder="Price at Safeway">
+            <input type="text" id="store3" placeholder="Price at Whole Foods">
+            <button type="button" onclick="submitPrice()">Submit</button>
+        </form>
+
+        <div id="new-prices"></div>
+    </main>
+
+    <script>
+        function submitPrice() {
+            let item = document.getElementById("item-name").value;
+            let store1 = document.getElementById("store1").value;
+            let store2 = document.getElementById("store2").value;
+            let store3 = document.getElementById("store3").value;
+
+            if (item && store1 && store2 && store3) {
+                let newRow = `<tr><td>${item}</td><td>${store1}</td><td>${store2}</td><td>${store3}</td></tr>`;
+                document.querySelector("table").innerHTML += newRow;
+            }
+        }
+    </script>
+</body>
+</html>
